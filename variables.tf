@@ -38,3 +38,47 @@ variable "database_subnet_cidr" {
 variable "database_subnet_names" {
   default = ["timing-database-1a","timing-database-1b"]
 }
+
+variable "rds_security_group_name" {
+  default = "timing"
+}
+
+variable "rds_security_group_description" {
+  default = "This security group is to attach timing RDS"
+}
+
+variable "ingress_cidr" {
+  default = []
+}
+
+variable "allocated_storage" {
+  default = "10"
+}
+
+variable "db_name" {
+  default = "timing"
+}
+
+variable "identifier" {
+  default = "timing"
+}
+variable "engine" {
+  default = "postgres"
+}
+variable "engine_version" {
+  default = "14.7-R1"
+}
+variable "rds_username" {
+  default = "timingadmin"
+}
+variable "secret_name" {
+  default = "timing/rds-password-value"
+}
+variable "instance_type" {
+ default = "db.t4g.micro" 
+}
+
+
+
+
+
