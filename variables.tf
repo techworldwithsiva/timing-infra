@@ -77,8 +77,50 @@ variable "secret_name" {
 variable "instance_type" {
  default = "db.t4g.micro" 
 }
+variable "rds_secret_arn" {
+  default = "arn:aws:secretsmanager:ap-south-1:752692907119:secret:timing/rds-password-secret-JgMrwQ"
+}
 
+variable "ecs_cluster_name" {
+  default = "timing"
+}
 
+variable "ecs_log_group_name" {
+  default = "/timing/ecs-cluster"
+}
+
+variable "app_alb_security_group_name" {
+  default = "timing-alb"
+}
+
+variable "app_alb_security_group_description" {
+  default = "This is used for Application ALB"
+}
+
+variable "app_alb_ingress_cidr" {
+  default = [
+    {
+      from_port = "80"
+      to_port = "80"
+      cidr_block = "0.0.0.0/0"
+      description = "Opening 80 to internet"
+    },
+    {
+      from_port = "443"
+      to_port = "443"
+      cidr_block = "0.0.0.0/0"
+      description = "Opening 443 to internet"
+    }
+  ]
+}
+
+variable "app_alb_name" {
+  default = "timing-app"
+}
+
+variable "app_alb_tags" {
+  default = {}
+}
 
 
 
