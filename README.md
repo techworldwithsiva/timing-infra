@@ -1,5 +1,7 @@
 ### Assignment
 
+![alt text](infra-services1.png)
+
 We are using the below services in this assignment.
 #### Project Infra:
 * VPC
@@ -65,8 +67,6 @@ We are using the below services in this assignment.
     * We create ECS Service.
     * We attach ECS Service to Web ALB.
     * We create ECS CloudWatch Log group.
-    
-![alt text](infra-services1.png)
 
 Traffic flow is like below.
 
