@@ -35,7 +35,7 @@ We are using the below services in this assignment.
 * Parameters
     * We export all the necessary parameters to SSM parameter store.
 
-#### Application
+#### Applications
  Below are things required by applications.
 
  #### API application
@@ -51,6 +51,21 @@ We are using the below services in this assignment.
     * We create ECS Service.
     * We attach ECS Service to API ALB.
     * We create ECS CloudWatch Log group.
+
+#### Web application
+ * IAM
+    * We create IAM task role and task execution role. These roles should have access to pull image from repos.
+    * Respective IAM trust policy and permission polices will be created.
+* SG
+    * We create Web ECS SG.
+    * SG rules will be added to allow traffic only from Web ALB.
+    * SG rule to API ALB SG will be added to allow traffic only from ECS Web SG.
+* ECS
+    * We create task definition.
+    * We create ECS Service.
+    * We attach ECS Service to Web ALB.
+    * We create ECS CloudWatch Log group.
+    
 ![alt text](infra-services1.png)
 
 Traffic flow is like below.
