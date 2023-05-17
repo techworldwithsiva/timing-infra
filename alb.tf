@@ -26,10 +26,11 @@ module "app_alb" {
         }
     ]
 
-    http_tcp_listeners = [
+    https_listeners = [
         {
-            port               = 80
-            protocol           = "HTTP"
+            port               = 443
+            protocol           = "HTTPS"
+            certificate_arn = module.acm.acm_certificate_arn
             target_group_index = 0
         }
     ]

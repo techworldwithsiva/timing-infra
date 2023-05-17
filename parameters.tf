@@ -45,3 +45,9 @@ resource "aws_ssm_parameter" "rds_secret_arn" {
   type  = "String"
   value = var.rds_secret_arn
 }
+
+resource "aws_ssm_parameter" "ecs_cluster_id" {
+  name  = "/timing/ecs/ecs_cluster_id"
+  type  = "String"
+  value = module.ecs_cluster.ecs_cluster_id
+}
