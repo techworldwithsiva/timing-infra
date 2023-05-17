@@ -122,5 +122,15 @@ variable "app_alb_tags" {
   default = {}
 }
 
+variable "zone_name" {
+  default = "cloudcamp.in"
+}
 
+variable "api_alb_record_name" {
+  default = "api"
+}
+
+variable "zone_id" {
+  default = "Z0261990I9I03P83A6NB"
+}
 
