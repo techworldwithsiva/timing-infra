@@ -22,6 +22,12 @@ resource "aws_ssm_parameter" "app_alb_security_group_id" {
   value = local.app_alb_security_group_id
 }
 
+resource "aws_ssm_parameter" "web_alb_security_group_id" {
+  name  = "/timing/vpc/web_alb_security_group_id"
+  type  = "String"
+  value = local.web_alb_security_group_id
+}
+
 resource "aws_ssm_parameter" "rds_security_group_id" {
   name  = "/timing/vpc/rds_security_group_id"
   type  = "String"
@@ -38,6 +44,12 @@ resource "aws_ssm_parameter" "app_target_group_arn" {
   name  = "/timing/ec2/app_target_group_arns"
   type  = "StringList"
   value = join(",", module.app_alb.target_group_arns)
+}
+
+resource "aws_ssm_parameter" "web_target_group_arn" {
+  name  = "/timing/ec2/web_target_group_arns"
+  type  = "StringList"
+  value = join(",", module.web_alb.target_group_arns)
 }
 
 resource "aws_ssm_parameter" "rds_secret_arn" {

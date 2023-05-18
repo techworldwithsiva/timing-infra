@@ -93,8 +93,16 @@ variable "app_alb_security_group_name" {
   default = "timing-alb"
 }
 
+variable "web_alb_security_group_name" {
+  default = "timing-web"
+}
+
 variable "app_alb_security_group_description" {
   default = "This is used for Application ALB"
+}
+
+variable "web_alb_security_group_description" {
+  default = "This is used for web Application ALB"
 }
 
 variable "app_alb_ingress_cidr" {
@@ -114,8 +122,24 @@ variable "app_alb_ingress_cidr" {
   ]
 }
 
+variable "web_alb_ingress_cidr" {
+  default = [
+
+    {
+      from_port = "443"
+      to_port = "443"
+      cidr_block = "0.0.0.0/0"
+      description = "Opening 443 to internet"
+    }
+  ]
+}
+
 variable "app_alb_name" {
   default = "timing-app"
+}
+
+variable "web_alb_name" {
+  default = "timing-web"
 }
 
 variable "app_alb_tags" {
@@ -128,6 +152,10 @@ variable "zone_name" {
 
 variable "api_alb_record_name" {
   default = "api"
+}
+
+variable "web_alb_record_name" {
+  default = "web"
 }
 
 variable "zone_id" {
