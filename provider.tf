@@ -19,3 +19,10 @@ provider "aws" {
   region = "ap-south-1"
   
 }
+
+provider "aws" {
+  # Configuration options
+  region = "us-east-1"
+  alias = "us-east-1-cdn"
+  
+}

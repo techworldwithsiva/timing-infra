@@ -122,7 +122,7 @@ variable "app_alb_ingress_cidr" {
   ]
 }
 
-variable "web_alb_ingress_cidr" {
+ variable "web_alb_ingress_cidr" {
   default = [
 
     {
@@ -130,9 +130,15 @@ variable "web_alb_ingress_cidr" {
       to_port = "443"
       cidr_block = "0.0.0.0/0"
       description = "Opening 443 to internet"
+    },
+    {
+      from_port = "80"
+      to_port = "80"
+      cidr_block = "0.0.0.0/0"
+      description = "Opening 80 to internet"
     }
   ]
-}
+ }
 
 variable "app_alb_name" {
   default = "timing-app"
@@ -160,5 +166,9 @@ variable "web_alb_record_name" {
 
 variable "zone_id" {
   default = "Z0261990I9I03P83A6NB"
+}
+
+variable "cdn_record_name" {
+  default = "cdn"
 }
 

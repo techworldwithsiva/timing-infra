@@ -30,6 +30,14 @@ module "web_alb_records" {
         name    = local.web_alb_dns_name
         zone_id = local.web_alb_zone_id
       }
+    },
+    {
+      name    = var.cdn_record_name
+      type    = "A"
+      alias   = {
+        name    = module.cdn.cloudfront_distribution_domain_name
+        zone_id = module.cdn.cloudfront_distribution_hosted_zone_id
+      }
     }
   ]
 }
