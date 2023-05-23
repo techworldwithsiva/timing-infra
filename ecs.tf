@@ -1,8 +1,8 @@
 module "ecs_cluster" {
-  source = "../terraform-modules-ecs-cluster"
-  ecs_cluster_name = var.ecs_cluster_name
+  source             = "git::https://github.com/techworldwithsiva/terraform-modules-ecs-cluster.git"
+  ecs_cluster_name   = var.ecs_cluster_name
   ecs_log_group_name = var.ecs_log_group_name
-  tags = var.tags
+  tags               = var.tags
 }
 
 resource "aws_ecr_repository" "app" {

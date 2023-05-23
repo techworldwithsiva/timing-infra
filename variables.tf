@@ -1,9 +1,9 @@
 variable "tags" {
-  type = map
+  type = map(any)
   default = {
-    Name = "timing"
+    Name        = "timing"
     Environment = "DEV"
-    Terraform = "true"
+    Terraform   = "true"
   }
 }
 
@@ -12,31 +12,31 @@ variable "vpc_cidr" {
 }
 
 variable "azs" {
-  default = ["ap-south-1a","ap-south-1b"]
+  default = ["ap-south-1a", "ap-south-1b"]
 }
 
 variable "public_subnet_cidr" {
-  default = ["10.0.1.0/24","10.0.2.0/24"]
+  default = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
 variable "public_subnet_names" {
-  default = ["timing-public-1a","timing-public-1b"]
+  default = ["timing-public-1a", "timing-public-1b"]
 }
 
 variable "private_subnet_cidr" {
-  default = ["10.0.11.0/24","10.0.12.0/24"]
+  default = ["10.0.11.0/24", "10.0.12.0/24"]
 }
 
 variable "private_subnet_names" {
-  default = ["timing-private-1a","timing-private-1b"]
+  default = ["timing-private-1a", "timing-private-1b"]
 }
 
 variable "database_subnet_cidr" {
-  default = ["10.0.21.0/24","10.0.22.0/24"]
+  default = ["10.0.21.0/24", "10.0.22.0/24"]
 }
 
 variable "database_subnet_names" {
-  default = ["timing-database-1a","timing-database-1b"]
+  default = ["timing-database-1a", "timing-database-1b"]
 }
 
 variable "rds_security_group_name" {
@@ -75,7 +75,7 @@ variable "secret_name" {
   default = "timing/rds-password-value"
 }
 variable "instance_type" {
- default = "db.t4g.micro" 
+  default = "db.t4g.micro"
 }
 variable "rds_secret_arn" {
   default = "arn:aws:secretsmanager:ap-south-1:752692907119:secret:timing/rds-password-secret-JgMrwQ"
@@ -114,31 +114,31 @@ variable "app_alb_ingress_cidr" {
     #   description = "Opening 80 to internet"
     # },
     {
-      from_port = "443"
-      to_port = "443"
-      cidr_block = "0.0.0.0/0"
+      from_port   = "443"
+      to_port     = "443"
+      cidr_block  = "0.0.0.0/0"
       description = "Opening 443 to internet"
     }
   ]
 }
 
- variable "web_alb_ingress_cidr" {
+variable "web_alb_ingress_cidr" {
   default = [
 
     {
-      from_port = "443"
-      to_port = "443"
-      cidr_block = "0.0.0.0/0"
+      from_port   = "443"
+      to_port     = "443"
+      cidr_block  = "0.0.0.0/0"
       description = "Opening 443 to internet"
     },
     {
-      from_port = "80"
-      to_port = "80"
-      cidr_block = "0.0.0.0/0"
+      from_port   = "80"
+      to_port     = "80"
+      cidr_block  = "0.0.0.0/0"
       description = "Opening 80 to internet"
     }
   ]
- }
+}
 
 variable "app_alb_name" {
   default = "timing-app"

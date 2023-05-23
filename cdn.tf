@@ -3,7 +3,7 @@ module "cdn" {
 
   aliases = ["cdn.cloudcamp.in"]
   comment = "This CDN is to serve Web ALB"
-  enabled             = true
+  enabled = true
 
   origin = {
     web-alb = {
@@ -18,12 +18,12 @@ module "cdn" {
   }
 
   default_cache_behavior = {
-    target_origin_id           = "web-alb"
-    viewer_protocol_policy     = "redirect-to-https"
-    allowed_methods = ["GET", "HEAD", "OPTIONS"]
-    cached_methods  = ["GET", "HEAD"]
-    compress        = true
-    query_string    = true
+    target_origin_id       = "web-alb"
+    viewer_protocol_policy = "redirect-to-https"
+    allowed_methods        = ["GET", "HEAD", "OPTIONS"]
+    cached_methods         = ["GET", "HEAD"]
+    compress               = true
+    query_string           = true
   }
 
   viewer_certificate = {
