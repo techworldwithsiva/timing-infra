@@ -9,7 +9,7 @@ module "rds_sg" {
 
 # We want port no 80 and 443 open to internet
 module "app_alb_sg" {
-  source                     = "../terraform-modules-security-group"
+  source                     = "git::https://github.com/techworldwithsiva/terraform-modules-security-group.git"
   vpc_id                     = local.vpc_id
   security_group_name        = var.app_alb_security_group_name
   security_group_description = var.app_alb_security_group_description
@@ -18,7 +18,7 @@ module "app_alb_sg" {
 }
 
 module "web_alb_sg" {
-  source                     = "../terraform-modules-security-group"
+  source                     = "git::https://github.com/techworldwithsiva/terraform-modules-security-group.git"
   vpc_id                     = local.vpc_id
   security_group_name        = var.web_alb_security_group_name
   security_group_description = var.web_alb_security_group_description
